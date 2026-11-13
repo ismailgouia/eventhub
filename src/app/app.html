@@ -4,4 +4,8 @@
   <router-outlet></router-outlet>
 </main>
 
-<app-pied-page></app-pied-page>
+@defer (on viewport) {
+  <app-pied-page></app-pied-page>
+} @placeholder {
+  <div class="pied-page-placeholder"></div>
+}
