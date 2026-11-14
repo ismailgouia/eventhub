@@ -1,3 +1,4 @@
+
 <header>
   <div class="logo">
     <a routerLink="/evenements">EventHub</a>
@@ -10,30 +11,30 @@
       [routerLinkActiveOptions]="{ exact: true }"
     >
       Événements
-    <a routerLink="/mes-reservations" routerLinkActive="active">
-      Mes réservations
     </a>
+
+    <a routerLink="/mes-reservations" routerLinkActive="active">
+      Mes réservations ({{ reservations.nombreReservations() }})
     </a>
 
     @if (session.estConnecte()) {
       <span>Bienvenue, {{ session.utilisateur()?.nom }}</span>
 
       <button (click)="session.deconnecter()">
-      Déconnexion
+        Déconnexion
       </button>
     } @else {
-        <a routerLink="/connexion" routerLinkActive="active">
+      <a routerLink="/connexion" routerLinkActive="active">
         Connexion
-        </a>
-      }
-
+      </a>
+    }
 
     @if (session.estOrganisateur()) {
       <a
-      routerLink="/nouvel-evenement"
-      routerLinkActive="active"
+        routerLink="/nouvel-evenement"
+        routerLinkActive="active"
       >
-      Nouvel événement
+        Nouvel événement
       </a>
     }
   </nav>
